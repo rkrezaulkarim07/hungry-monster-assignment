@@ -6,6 +6,7 @@ const searchMeals = () => {
     .then(data => displayMeals(data.meals))
 }
 
+//<--Search Meal part-->
 const displayMeals = meals => {
   const mealContainer = document.getElementById('meal-container')
 
@@ -13,7 +14,7 @@ const displayMeals = meals => {
     const mealDiv = document.createElement('div');
     mealDiv.className = 'row row-cols-1 row-cols-md-4 g-4';
     mealDiv.innerHTML = `
-              <div class="col">
+              <div class="col container SearchMeal">
               <div class="card h-100">
                   <div class="card-body">
                   <img onclick ="ingredientPart(${meal.idMeal})" src ="${meal.strMealThumb}">
@@ -26,6 +27,7 @@ const displayMeals = meals => {
   })
 }
 
+//<--ingredientPart-->
 const ingredientPart = (id) => {
   const ingredientApi = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
   fetch(ingredientApi)
